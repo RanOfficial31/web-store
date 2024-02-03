@@ -261,13 +261,13 @@ $queryCategori = mysqli_query($con, "SELECT * FROM categori");
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const submitButton = document.getElementById('submitBtn'); // Sesuaikan dengan ID tombol submit Anda
-            const form = document.getElementById('contact-form'); // Sesuaikan dengan ID formulir Anda
+            const submitButton = document.getElementById('submitBtn'); 
+            const form = document.getElementById('contact-form'); 
 
             submitButton.addEventListener('click', function (e) {
                 e.preventDefault();
 
-                // Ambil nilai dari input formulir
+               
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
@@ -275,15 +275,15 @@ $queryCategori = mysqli_query($con, "SELECT * FROM categori");
 
                 document.getElementById('contact-form').reset();
 
-                // Panggil fungsi sendEmail() dengan parameter nilai formulir
+                
                 sendEmail(name, email, phone, message);
             });
 
             function sendEmail(name, email, phone, message) {
                 Email.send({
-                    SecureToken: "ce9e28b7-71d1-437b-9889-4e2fe48b4554",
+                    SecureToken: "your token",
                     To: 'ranofficial97@gmail.com',
-                    From: "ranofficial97@gmail.com", // Gunakan alamat email yang diambil dari formulir
+                    From: "ranofficial97@gmail.com",
                     Subject: "Web Store",
                     Body: "Name: " + name + "<br>Email: " + email + "<br>Phone: " + phone + "<br>Message: " + message
                 }).then(
