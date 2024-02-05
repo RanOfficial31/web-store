@@ -4,7 +4,7 @@ require "../dbconnection.php";
 
 $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'],"/")+1);
 $query = mysqli_query($con, "SELECT a.*, b.nama AS nama_categori FROM produk a JOIN categori b on a.
-categori_id=b.id");
+categori_id=b.id ORDER BY a.id DESC");
 $jumlahProduk = mysqli_num_rows($query);
 ?>
 
@@ -135,20 +135,20 @@ $jumlahProduk = mysqli_num_rows($query);
 <!-- MAIN CONTENT START -->
     <div class="l:w-full lg:ml-64 px-6 py-8">
         <div class="flex flex-wrap w-full mb-14 container">
-            <div class="w-full mb-6 lg:mb-0" data-aos="zoom-in" data-aos-duration="1000" >
+            <div class="w-full mb-6 lg:mb-0" >
                 <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Product 
                 </h1>
                 <div class="h-1 w-24 bg-sky-500 rounded"></div>
             </div>
         </div>
 
-        <div class=" mb-8 animate__animated  animate__bounceInUp animate__delay-1s">
+        <div class=" mb-8">
             <a href="product-add.php"><span class="tracking-wider text-white bg-sky-500 px-4 py-2 text-md rounded leading-loose mx-2 font-semibold
                 shadow-[4px_4px_4px_#b1b1b1] hover:bg-sky-400 hover:shadow-none ">
                 <i class="bi bi-plus-circle mr-1" aria-hidden="true"></i>Add Product </span>
             </a>
         </div>
-<div class="bg-gray-100 drop-shadow-xl animate__animated animate__bounceIn animate__delay-2s">
+<div class="bg-gray-100 drop-shadow-xl">
     <div class="p-2 my-4 table-responsive-xl ">
         <table id="product" class="table table-striped table-hover table-xl text-center leading-relaxed ">
 				<thead class="table-light border-b-2">
@@ -181,12 +181,10 @@ $jumlahProduk = mysqli_num_rows($query);
                             <td><?php echo $data['harga']; ?></td>
                             <td><?php echo $data['ketersediaan_stok']; ?></td>
                             <td>
-                                <a class="btn text-white bg-green-600 hover:bg-green-400 shadow-[3px_3px_3px_#b1b1b1] m-1 transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300"
+                                <a class="btn text-white bg-sky-500 hover:bg-sky-400 shadow-[3px_3px_3px_#b1b1b1] m-1 transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300"
 									href="product-detail.php?r4n=<?php echo $data['id']; ?>">
-                                    <i class="bi bi-pencil-square"></i></a>
-                                <a class="btn text-white bg-red-600 hover:bg-red-400 shadow-[3px_3px_3px_#b1b1b1] m-1 transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300" 
-									href="product-deleted.php?r4n=<?php echo $data['id']; ?>">
-                                    <i class="bi bi-trash3"></i></a>
+                                    <i class="bi bi-eye"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php
@@ -201,7 +199,7 @@ $jumlahProduk = mysqli_num_rows($query);
     <p class="mx-auto mt-8 text-gray-600 text-center lg:max-w-2xl lg:mb-6 md:px-16">
         © 2023 Copyright | Web Store.com
     </p>
-</div>
+    </div>
 
 
 <!-- MAIN CONTENT END -->

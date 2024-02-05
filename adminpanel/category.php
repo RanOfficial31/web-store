@@ -14,26 +14,26 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Admin Panel | Category</title>
-	
-    <!-- FAVICON START -->
-    <link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <!-- FAVICON END -->
+
+	<!-- FAVICON START -->
+	<link rel="apple-touch-icon" sizes="57x57" href="../favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="../favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<!-- FAVICON END -->
 
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
@@ -66,15 +66,18 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 			</button>
 			<!-- Logo -->
 			<div class="ml-1 text-center my-3 flex">
-                    <h1 class="font-sans text-3xl font-bold text-sky-700"><i class="bi bi-cart3 me-2"></i>Admin <span class="text-sky-500" >Panel</span></h1>
-            </div>
+				<h1 class="font-sans text-3xl font-bold text-sky-700"><i class="bi bi-cart3 me-2"></i>Admin <span
+						class="text-sky-500">Panel</span></h1>
+			</div>
 
 			<!-- Ícono de Notificación y Perfil -->
 			<div class="space-x-4">
 				<!-- Botón de Perfil -->
 				<a href="logout.php">
-                    <img src="https://eps.monvr.pf/wp-content/uploads/2017/09/button-305726_640-e1506539400295.png" alt="" width="25px" class="transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300">
-                </a>
+					<img src="https://eps.monvr.pf/wp-content/uploads/2017/09/button-305726_640-e1506539400295.png"
+						alt="" width="25px"
+						class="transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300">
+				</a>
 			</div>
 		</div>
 	</nav>
@@ -124,14 +127,16 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 				<span class="-mr-1 font-medium">Product</span>
 			</a>
 			<a href="../index.php" aria-label="dashboard"
-                class="relative px-4 py-3 flex items-center space-x-4 text-gray-500 font-semibold text-lg
-                hover:border-r-[6px] hover:text-sky-500 border-sky-500 transition ease-in-out delay-0 hover:-translate-x-1 hover:scale-100 duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-eye font-semibold" viewBox="0 0 16 16">
-                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
-                </svg>
-                <span class="-mr-1 font-medium">View Web</span>
-            </a>
+				class="relative px-4 py-3 flex items-center space-x-4 text-gray-500 font-semibold text-lg
+				hover:border-r-[6px] hover:text-sky-500 border-sky-500 transition ease-in-out delay-0 hover:-translate-x-1 hover:scale-100 duration-300">
+				<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+					class="bi bi-eye font-semibold" viewBox="0 0 16 16">
+					<path
+						d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+					<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+				</svg>
+				<span class="-mr-1 font-medium">View Web</span>
+			</a>
 
 		</div>
 	</div>
@@ -139,7 +144,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 
 	<!-- MAIN CONTENT START -->
 	<div class="l:w-full lg:ml-64 px-6 py-8">
-		<div data-aos="zoom-in" data-aos-duration="1000">
+		<div>
 			<h1 class="sm:text-4xl text-3xl font-medium  mb-2 text-gray-900">
 				Category
 			</h1>
@@ -149,7 +154,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 
 		<!-- Main input -->
 		<main class="py-10">
-			<div class="container mx-auto animate__animated animate__bounceInUp animate__delay-1s">
+			<div class="container mx-auto">
 				<form action="" method="POST">
 					<div class="mb-4 flex items-center">
 						<input type="text" name="categori" id="categori" class="form-control w-full rounded-lg border border-gray-400 p-2
@@ -160,14 +165,14 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 				</form>
 			</div>
 		</main>
-<?php
+		<?php
 		if (isset($_POST['save'])) {
 			$categori = htmlspecialchars($_POST['categori']);
 			$queryCategori = mysqli_query($con, "SELECT nama FROM categori WHERE nama='$categori'");
 			$categoriData = mysqli_num_rows($queryCategori);
 
 			if ($categoriData > 0) {
-?>
+				?>
 				<script>
 					swal({
 						title: "warning",
@@ -175,93 +180,92 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 						icon: "warning",
 						button: false,
 						timer: 1000,
-						});
-						
+					});
+
 				</script>
 				<meta http-equiv="refresh" content="0; url=category.php" />
-<?php
-			} 
-			else {
+				<?php
+			} else {
 				$querySave = mysqli_query($con, "INSERT INTO categori (nama) VALUES ('$categori')");
 				if ($querySave) {
-?>
+					?>
 					<script>
-							swal({
-								title: "success",
-								text: "Category Saved Successfully",
-								icon: "success",
-								button: false,
-								timer: 3000,
-							});
+						swal({
+							title: "success",
+							text: "Category Saved Successfully",
+							icon: "success",
+							button: false,
+							timer: 3000,
+						});
+						document.location.href = 'category.php';
 					</script>
-					<meta http-equiv="refresh" content="2; url=category.php" />
-<?php
+					<?php
 				} else {
 					?>
 					<script>
 						swal({
 							title: "error",
-							text: "Error In Database",
+							text: "Error Internal Server",
 							icon: "error",
 							button: false,
 							timer: 3000,
 						});
 					</script>
-<?php
+					<?php
 				}
 			}
 		}
-?>
-<div class="bg-gray-100 drop-shadow-xl animate__animated animate__bounceIn animate__delay-2s">
-		<div class="p-2 my-4 table-responsive-xl">
-			<table id="data" class="table table-striped table-hover table-xl text-center ">
-				<thead class="table-light border-b-2">
-					<tr>
-						<th class="w-24 text-center">No.</th>
-						<th class="text-center">Name Category</th>
-						<th class="w-48 text-center">Action</th>
-					</tr>
-				</thead />
-				<tbody>
-					<?php
-					$number = 1;
-					while ($data = mysqli_fetch_array($queryCategori)) {
-						if ($numberOfCategori == 0) {
-							?>
-							<tr>
-								No Data in Category
-							</tr>
-							<?php
-						} else {
-							?>
-							<tr>
-								<td>
-									<?php echo $number; ?>
-								</td>
-								<td>
-									<?php echo $data['nama']; ?>
-								</td>
-								<td>
-									<a class="btn text-white bg-green-600 hover:bg-green-400 shadow-[3px_3px_3px_#b1b1b1] m-1 transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300"
-										href="category-detail.php?r4n=<?php echo $data['id']; ?>">
-										<i class="bi bi-pencil-square"></i></a>
-									<a class="btn text-white bg-red-600 hover:bg-red-400 shadow-[3px_3px_3px_#b1b1b1] m-1 transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300"
-										href="category-deleted.php?r4n=<?php echo $data['id']; ?>">
-										<i class="bi bi-trash3"></i></a>
-								</td>
-							</tr>
-							<?php
+		?>
+		<div class="bg-gray-100 drop-shadow-xl">
+			<div class="p-2 my-4 table-responsive-xl">
+				<table id="data" class="table table-striped table-hover table-xl text-center ">
+					<thead class="table-light border-b-2">
+						<tr>
+							<th class="w-24 text-center">No.</th>
+							<th class="text-center">Name Category</th>
+							<th class="w-48 text-center">Action</th>
+						</tr>
+					</thead />
+					<tbody>
+						<?php
+						$number = 1;
+						while ($data = mysqli_fetch_array($queryCategori)) {
+							if ($numberOfCategori == 0) {
+								?>
+								<tr>
+									No Data in Category
+								</tr>
+								<?php
+							} else {
+								?>
+								<tr>
+									<td>
+										<?php echo $number; ?>
+									</td>
+									<td>
+										<?php echo $data['nama']; ?>
+									</td>
+									<td>
+										<a class="btn text-white bg-green-600 hover:bg-green-400 shadow-[3px_3px_3px_#b1b1b1] m-1 transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300"
+											href="category-detail.php?r4n=<?php echo $data['id']; ?>">
+											<i class="bi bi-pencil-square"></i></a>
+										<a class="btn text-white bg-red-600 hover:bg-red-400 shadow-[3px_3px_3px_#b1b1b1] m-1 transition ease-in-out delay-0 hover:-translate-1 hover:scale-110 duration-300"
+											href="category-deleted.php?r4n=<?php echo $data['id']; ?>">
+											<i class="bi bi-trash3"></i></a>
+									</td>
+								</tr>
+								<?php
+							}
+							$number++;
 						}
-						$number++;
-					}
-					?>
-				</tbody>
-			</table>
+						?>
+					</tbody>
+				</table>
+			</div>
 		</div>
-</div>
-    <p class="mx-auto mt-8 text-gray-600 text-center lg:max-w-2xl lg:mb-6 md:px-16">
-        © 2023 Copyright | Web Store.com
-    </p>
+		<p class="mx-auto mt-8 text-gray-600 text-center lg:max-w-2xl lg:mb-6 md:px-16">
+			© 2023 Copyright | Web Store.com
+		</p>
 	</div>
 	<!-- MAIN CONTENT END -->
 

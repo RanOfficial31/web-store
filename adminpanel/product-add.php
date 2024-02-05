@@ -6,10 +6,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 $query = mysqli_query($con, "SELECT * FROM produk");
 $jumlahProduk = mysqli_num_rows($query);
 $queryCategori = mysqli_query($con, "SELECT * FROM categori");
-?>
 
-<!-- automatically change the name file if it is the same -->
-<?php
 function generateRandomString($length = 10)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -20,6 +17,67 @@ function generateRandomString($length = 10)
     }
     return $randomString;
 }
+
+    if (isset($_POST['simpan'])) {
+        $nama = htmlspecialchars($_POST['nama']);
+        $categori = htmlspecialchars($_POST['categori']);
+        $harga = htmlspecialchars($_POST['harga']);
+        $detail = htmlspecialchars($_POST['detail']);
+        $ketersediaan_stok = htmlspecialchars($_POST['ketersediaan_stok']);
+
+        $target_dir = "../image/";
+        $nama_file = basename($_FILES["foto"]["name"]);
+        $target_file = $target_dir . $nama_file;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $image_size = $_FILES["foto"]["size"];
+        $random_name = generateRandomString(20);
+        $new_name = $random_name . "." . $imageFileType;
+        if ($nama == '' || $categori == '' || $harga == '') {
+            echo
+                "
+                <script> 
+                    alert ('Internal Server Error');
+                </script>
+                ";
+        } else {
+            // VALIDATION IMAGE
+            if ($nama_file != '') {
+                if ($image_size > 1000000) {
+                    echo 
+                    "
+                        <script> 
+                            alert ('Foto melebihi dari 500 (kb)');
+                        </script>
+                    ";
+                } else {
+                    if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                        echo 
+                        "
+                            <script> 
+                                alert ('Gambar Harus Berformat JPG, PNG, JPEG');
+                            </script>
+                        ";
+                    } else {
+                        move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $new_name);
+                    }
+                }
+            }
+            // INSERT QUERY
+            $queryTambah = mysqli_query($con, "INSERT INTO produk
+                    (categori_id, nama, harga, foto, detail, ketersediaan_stok)
+                    VALUES ('$categori', '$nama', '$harga', '$new_name', '$detail', '$ketersediaan_stok')");
+
+            if ($queryTambah) {
+                echo 
+                "
+                    <script> 
+                        alert ('Product Berhasil Di Tambah !!!');
+                        document.location.href = 'product.php';
+                    </script>
+                ";
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -66,80 +124,6 @@ function generateRandomString($length = 10)
 
 <body class="bg-gray-900 contrast-100">
 
-    <?php
-    if (isset($_POST['simpan'])) {
-        $nama = htmlspecialchars($_POST['nama']);
-        $categori = htmlspecialchars($_POST['categori']);
-        $harga = htmlspecialchars($_POST['harga']);
-        $detail = htmlspecialchars($_POST['detail']);
-        $ketersediaan_stok = htmlspecialchars($_POST['ketersediaan_stok']);
-
-        $target_dir = "../image/";
-        $nama_file = basename($_FILES["foto"]["name"]);
-        $target_file = $target_dir . $nama_file;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $image_size = $_FILES["foto"]["size"];
-        $random_name = generateRandomString(20);
-        $new_name = $random_name . "." . $imageFileType;
-        if ($nama == '' || $categori == '' || $harga == '') {
-            ?>
-            <div class="alert alert-danger alert-dismissible fade show sticky-top"
-                role="alert">
-                <strong>Upps!</strong> Page Must Be Filled In.
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <?php
-        } else {
-            // VALIDATION IMAGE
-            if ($nama_file != '') {
-                if ($image_size > 1000000) {
-                    ?>
-                    <div class="alert alert-danger alert-dismissible fade show sticky-top"
-                        role="alert">
-                        <strong>Upps!</strong> Foto melebihi dari (500 KB).
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <?php
-                } else {
-                    if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
-                        ?>
-                        <div class="alert alert-danger alert-dismissible fade show sticky-top"
-                            role="alert">
-                            <strong>Upps!</strong> Gambar harus berformat jpg, png, jpeg.
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <?php
-                    } else {
-                        move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $new_name);
-                    }
-                }
-            }
-            // INSERT QUERY
-            $queryTambah = mysqli_query($con, "INSERT INTO produk
-                    (categori_id, nama, harga, foto, detail, ketersediaan_stok)
-                    VALUES ('$categori', '$nama', '$harga', '$new_name', '$detail', '$ketersediaan_stok')");
-
-            if ($queryTambah) {
-                ?>
-                <div role="alert"
-                    class="alert alert-success alert-dismissible fade show sticky-top"
-                    role="alert">
-                    <strong>Success!</strong> Data saved.
-                </div>
-                <meta http-equiv="refresh" content="2; url=product.php" />
-                <?php
-
-            }
-        }
-    }
-    ?>
-
     <!-- MAIN CONTENT START -->
     <div class="min-h-screen flex items-center justify-center">
         <div
@@ -147,15 +131,15 @@ function generateRandomString($length = 10)
             <div class="flex justify-end text-xl font-semibold text-red-600"><a href="product.php"
                     class="hover:text-orange-500"><i class="bi bi-x-lg"></i></a></div>
             <div class="flex justify-center mb-8">
-                <h1 class="font-sans text-3xl font-bold text-sky-700"><i class="bi bi-cart3 me-2"></i>Admin <span class="text-sky-500" >Panel</span></h1>
+                <h1 class="font-sans text-3xl font-bold text-sky-700"><i class="bi bi-cart3 me-2"></i>Admin <span
+                        class="text-sky-500">Panel</span></h1>
             </div>
             <h1 class="text-xl font-semibold text-center text-gray-500 mt- mb-6">Create Your New Product</h1>
             <form action="" method="POST" enctype="multipart/form-data">
                 <div class="mb-4">
                     <label for="nama" class="block mb-2 text-sm text-gray-600">Product Name :</label>
                     <input type="text" id="nama" name="nama" placeholder="Proudct Name"
-                        class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg  "
-                        required>
+                        class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg  " required>
                 </div>
 
                 <div class="mb-4">
@@ -201,8 +185,7 @@ function generateRandomString($length = 10)
                 <div class="mb-4">
                     <label for="harga" class="block mb-2 text-sm text-gray-600">Price :</label>
                     <input type="number" id="harga" name="harga" placeholder="Determine The Price"
-                        class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg "
-                        required>
+                        class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg " required>
                 </div>
                 <button type="submit" name="simpan" class="w-full bg-sky-500 text-white py-2 rounded-lg mx-auto block shadow-[5px_5px_5px_#b1b1b1] hover:shadow-none hover:bg-sky-400
                     focus:outline-none  mb-2">Save</button>
@@ -212,8 +195,6 @@ function generateRandomString($length = 10)
             </div>
         </div>
     </div>
-
-
     <!-- MAIN CONTENT END -->
 </body>
 
