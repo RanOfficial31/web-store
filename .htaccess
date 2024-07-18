@@ -1,0 +1,7 @@
+RewriteEngine On
+
+Directoryindex index.php
+RewriteRule ^produk$ produk.php [L]
+RewriteRule ^produk-detail$ produk-detail.php [L]
+RewriteRule ^tentang-kami$ tentang-kami.php [L]
+RewriteRule ^hubungi$ hubungi.php [L]

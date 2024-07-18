@@ -1,0 +1,12 @@
+RewriteEngine On
+
+Directoryindex index.php
+RewriteRule ^login$ login.php [L]
+RewriteRule ^logout$ logout.php [L]
+RewriteRule ^category$ category.php [L]
+RewriteRule ^category-detail$ category-detail.php [L]
+RewriteRule ^category-deleted$ category-deleted.php [L]
+RewriteRule ^product$ product.php [L]
+RewriteRule ^product-add$ product-add.php [L]
+RewriteRule ^product-detail$ product-detail.php [L]
+RewriteRule ^login$ login.php [L]
